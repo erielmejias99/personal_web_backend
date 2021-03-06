@@ -4,7 +4,7 @@ from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
 from personal_data.models import PersonalData
-from personal_data.serializers.personal_data import PersonalDataS
+from personal_data.serializers import PersonalDataS
 
 
 class PersonalDataViewSet( ListModelMixin, RetrieveModelMixin,
