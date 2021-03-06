@@ -1,0 +1,9 @@
+.idea
+media
+.vscode
+venv
+*.pyc
+
+**/__pycache__/*
+
+**/migrations/*
