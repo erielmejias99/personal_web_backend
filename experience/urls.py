@@ -1,6 +1,6 @@
 from rest_framework.routers import DefaultRouter
 
-from experience.views.experience import ExperienceViewSet
+from experience.views import ExperienceViewSet
 
 router = DefaultRouter()
 

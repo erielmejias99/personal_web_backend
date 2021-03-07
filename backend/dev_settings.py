@@ -41,7 +41,11 @@ INSTALLED_APPS = [
 
     'status',
     'personal_data',
-    'skill'
+    'skill',
+    'experience',
+    'file',
+    'formation',
+    'view_counter'
 ]
 
 MIDDLEWARE = [
@@ -60,7 +64,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ os.path.join( BASE_DIR, 'frontend' ), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
