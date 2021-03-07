@@ -1,11 +1,12 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, CreateModelMixin, UpdateModelMixin, \
     DestroyModelMixin
-from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
 from file.models import File
 from file.serializers import FileS
+from permission import IsSuperUser
 
 
 class FileViewSet( ListModelMixin, RetrieveModelMixin,
@@ -22,4 +23,4 @@ class FileViewSet( ListModelMixin, RetrieveModelMixin,
         if self.action == 'list' or self.action == 'retrieve':
             return AllowAny(),
         else:
-            return IsAuthenticated(), IsAdminUser()
+            return IsAuthenticated(), IsSuperUser()
