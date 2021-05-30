@@ -151,10 +151,9 @@ CORS_ORIGIN_WHITELIST = [
 CORS_ORIGIN_ALLOW_ALL = DEBUG
 
 # Email
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = os.path.join( BASE_DIR, 'media/email/' )
-
-EMAIL_HOST_USER = 'erielmejias99@gmail.com'
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+# EMAIL_FILE_PATH = os.path.join( BASE_DIR, 'media/email/' )
+# EMAIL_HOST_USER = 'erielmejias99@gmail.com'
 
 MEDIA_ROOT = os.path.join( BASE_DIR, 'Media' )
 MEDIA_URL = '/media/'
@@ -171,5 +170,21 @@ DROPBOX_WRITE_MODE = 'add'
 # DROPBOX_ACCESS_TOKEN = os.getenv( 'DROPBOX_ACCESS_TOKEN' )
 DROPBOX_ACCESS_TOKEN = os.getenv( 'DROPBOX_ACCESS_TOKEN' )
 DROPBOX_OAUTH2_TOKEN = os.getenv( 'DROPBOX_OAUTH2_TOKEN' )
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Google
+# EMAIL_HOST = 'smtp.googlemail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'erielmejias99test@gmail.com'
+# EMAIL_HOST_PASSWORD = 'adminadmin*99'
+
+# Private Mail
+EMAIL_HOST = os.getenv( 'EMAIL_HOST' )
+EMAIL_USE_SSL = True
+EMAIL_PORT = os.getenv( 'EMAIL_PORT' )
+EMAIL_HOST_USER = os.getenv( 'EMAIL_HOST_USER' )
+EMAIL_HOST_PASSWORD = os.getenv( 'EMAIL_HOST_PASSWORD' )
 
 django_heroku.settings( locals() )
