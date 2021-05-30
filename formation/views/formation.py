@@ -7,6 +7,8 @@ from formation.models import Formation
 from formation.serializers import FormationS
 from permission import IsSuperUser
 
+from rest_framework.filters import OrderingFilter
+
 
 class FormationViewSet( ListModelMixin, RetrieveModelMixin,
                      CreateModelMixin, UpdateModelMixin,
@@ -14,6 +16,8 @@ class FormationViewSet( ListModelMixin, RetrieveModelMixin,
 
     queryset = Formation.objects.all()
     serializer_class = FormationS
+    filter_backends = [ OrderingFilter ]
+    ordering_fields = [ 'start_date', 'end_date', 'title' ]
 
     def get_permissions(self):
 

@@ -3,11 +3,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from rest_framework_simplejwt.views import token_obtain_pair, token_refresh, token_verify
+from django.conf.urls.static import static
+from django.conf import settings
+# endregion
 
 urlpatterns = [
 
-    path( '', TemplateView.as_view( http_method_names=['get'], extra_context={}, template_name='site/index.html')  ),
-    path( 'myadmin/', TemplateView.as_view( http_method_names=['get'], extra_context={}, template_name='admin/index.html')  ),
+    # path( '', TemplateView.as_view( http_method_names=['get'], extra_context={}, template_name='site/index.html')  ),
+    # path( 'myadmin/', TemplateView.as_view( http_method_names=['get'], extra_context={}, template_name='admin/index.html')  ),
     path( 'admin/', admin.site.urls),
 
     path('api/token/', token_obtain_pair),
@@ -22,3 +25,7 @@ urlpatterns = [
     path( 'api/', include( 'file.urls' ) ),
     path( 'api/', include( 'personal_data.urls' ) )
 ]
+
+# region Remove on production
+urlpatterns += static( settings.MEDIA_URL, document_root = settings.MEDIA_ROOT )
+# endregion

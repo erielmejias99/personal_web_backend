@@ -12,7 +12,7 @@ class PersonalDataViewSet( ListModelMixin, RetrieveModelMixin,
                      CreateModelMixin, UpdateModelMixin,
                      DestroyModelMixin, GenericViewSet ):
 
-    queryset = PersonalData.objects.all()
+    queryset = PersonalData.objects.all().order_by('order')
     serializer_class = PersonalDataS
 
     def get_permissions(self):

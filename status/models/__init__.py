@@ -1,1 +1,1 @@
-from .status import Status
+from status.models.status import Status

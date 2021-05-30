@@ -4,18 +4,20 @@ from django.utils.timezone import now
 
 class Formation( models.Model ):
 
-    image = models.ImageField( width_field = 350, height_field = 350, null = False, blank = False )
+    image = models.ImageField( null = False, blank = False )
 
     institution = models.CharField( max_length = 250, null = False, blank = False )
 
     location = models.CharField( max_length = 250, null = True, blank = True )
 
-    title = models.CharField(max_length = 30, blank = True, null = True)
+    title = models.CharField(max_length = 30, blank = True, null = True )
+
+    web_page = models.CharField( max_length = 500, blank = True, null = True )
 
     description = models.TextField( max_length = 2000, null = True, blank = True  )
 
     start_date = models.DateTimeField( default = now, blank = False, null = False )
-    end_date = models.DateTimeField( default = now, blank = False, null = False )
+    end_date = models.DateTimeField( default = None, blank = True, null = True )
 
     def __str__(self):
         return "institution: {} | location: {} | title: {} | start_date: {} | end_date: {}"\

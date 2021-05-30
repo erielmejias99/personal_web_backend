@@ -3,7 +3,8 @@ from django.utils.timezone import now
 
 
 class Status( models.Model ):
-    status = models.CharField( max_length = 250)
+    status = models.CharField( max_length = 250 )
+    image = models.ImageField( upload_to='status', null = True, blank = False )
     start_date = models.DateField( default = now )
     end_date = models.DateField( null = True, blank = True, default = None )
 

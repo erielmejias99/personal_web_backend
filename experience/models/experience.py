@@ -4,7 +4,7 @@ from django.utils.timezone import now
 
 class Experience( models.Model ):
 
-    image = models.ImageField( width_field = 350, height_field = 350, null = False, blank = False )
+    image = models.ImageField( upload_to='experience', null = False, blank = False )
 
     company = models.CharField( max_length = 250, null = False, blank = False )
     location = models.CharField( max_length = 250, null = True, blank = True )
@@ -12,9 +12,10 @@ class Experience( models.Model ):
     occupation = models.CharField(max_length = 30, blank = False, null = False)
 
     description = models.TextField( max_length = 2000, null = True, blank = True  )
+    web_site = models.CharField( max_length=500, null = True, blank = True )
 
-    start_date = models.DateTimeField( default = now, blank = False, null = False )
-    end_date = models.DateTimeField( default = now, blank = False, null = False )
+    start_date = models.DateField( default = now, blank = False, null = False )
+    end_date = models.DateField( default = now, blank = True, null = True )
 
     def __str__(self):
         return "company: {} | occupation: {} | location: {} | start_date: {} | end_date: {}"\

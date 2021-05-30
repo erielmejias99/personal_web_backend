@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'experience',
     'file',
     'formation',
-    'view_counter'
+    'view_counter',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -64,7 +65,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join( BASE_DIR, 'frontend' ), ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,7 +87,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'PersonalAccount',
+        'NAME': 'PersonalWeb',
         'HOST': "127.0.0.1",
         'USER': 'postgres',
         'PASSWORD': 'posgres',
@@ -157,3 +158,6 @@ MEDIA_ROOT = os.path.join( BASE_DIR, 'Media' )
 MEDIA_URL = '/media/'
 
 GEOIP_PATH = os.path.join( BASE_DIR, 'geo_ip/GeoLite2-Country.mmdb' )
+
+# Custom Auth User
+AUTH_USER_MODEL = 'user.User'
