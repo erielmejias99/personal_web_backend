@@ -1,1 +1,1 @@
-web: gunicorn ErielMejias99.wsgi --log-file -
+web: gunicorn backend.wsgi --log-file -
