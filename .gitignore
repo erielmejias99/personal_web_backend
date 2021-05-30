@@ -4,6 +4,8 @@ media
 venv
 *.pyc
 
+Media
+
 **/__pycache__/*
 
 **/migrations/*
